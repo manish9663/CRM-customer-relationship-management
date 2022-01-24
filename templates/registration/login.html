@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+<div class="max-w-lg mx-auto px-6">
+    <div class="py-5 border-b border-gray-200 mt-5">
+        <a href="{% url 'signup' %}" class="hover:text-blue-500 mt-3" >Don't have an account?</a>
+    </div>
+    <form method="POST" class="mt-5">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="text-white w-full bg-blue-500 hover:bg-blue-600 px-2 py-1 rounded-md">login</button>
+    </form>
+    <div class="py-5 border-t border-grey-200 mt-5">
+        <a href="{% url 'reset-password' %}" class="hover:text-blue-500 mt-3" >Forgot password?</a>
+    </div>
+</div>
+
+
+{% endblock content %}
